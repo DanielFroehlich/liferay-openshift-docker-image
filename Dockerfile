@@ -20,7 +20,6 @@ RUN echo "Installing Java ${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VE
  && ln -s /opt/jre1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jre \
  && rm -rf /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} \
            /opt/jre/plugin \
-           /opt/jre/lib/fonts \
            /opt/jre/lib/plugin.jar \
            /opt/jre/lib/javaws.jar \
            /opt/jre/lib/desktop \
@@ -35,7 +34,6 @@ RUN echo "Installing Java ${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VE
            /opt/jre/lib/amd64/libgstreamer-lite.so \
            /opt/jre/lib/amd64/libjavafx*.so \
            /opt/jre/lib/amd64/libjfx*.so \
-           /opt/jre/lib/amd64/libawt*.so \
            /opt/jre/lib/amd64/libjsound*.so \
            /opt/jre/lib/amd64/libsplashscreen.so
 
