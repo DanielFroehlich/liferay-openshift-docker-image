@@ -6,27 +6,21 @@ pod:
 
 mysql:
   image: openshift/mysql-56-centos7
-#  user: "100000"
+  user: "100000"
   environment:
     MYSQL_ROOT_PASSWORD: mysecretpassword
     MYSQL_DATABASE: liferay
     MYSQL_USER: liferay
     MYSQL_PASSWORD: liferay
-  volumes:
-    - /var/lib/mysql/data
   net: "container:pod"
 
 liferay:
   #image: axags/liferay-openshift
   build: .
-#  user: "100000"
+  user: "100000"
   environment:
     DB_TYPE: MYSQL
+  # we use a link just to make sure liferay doesn't start before mysql
   links:
     - mysql
-  volumes:
-    - /var/liferay-home
-    - /opt/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/logs
-    - /opt/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/work
-    - /opt/liferay-portal-6.2-ce-ga4/tomcat-7.0.42/temp
   net: "container:pod"
