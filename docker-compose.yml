@@ -19,7 +19,11 @@ liferay:
   build: .
   user: "100000"
   environment:
-    DB_TYPE: MYSQL
+    LIFERAY_DB_TYPE: MYSQL
+    LIFERAY_DB_HOST: localhost
+    LIFERAY_DB_DATABASE: liferay
+    LIFERAY_DB_USER: liferay
+    LIFERAY_DB_PASSWORD: liferay
   # we use a link just to make sure liferay doesn't start before mysql
   links:
     - mysql
