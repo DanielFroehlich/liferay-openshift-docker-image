@@ -7,7 +7,18 @@
 set -e
 set -o pipefail
 
+# optional custom file defined by child images
+CUSTOM_FILE=/opt/liferay/portal-ext.properties
+
+# output file
 CONFIG_FILE=${LIFERAY_HOME}/portal-ext.properties
+
+if [ -r "$CUSTOM_FILE" ]; then
+  echo "Using custom configuration from $CUSTOM_FILE"
+  rsync -a $CUSTOM_FILE $CONFIG_FILE
+else
+  touch $CONFIG_FILE
+fi
 
 # default values
 LIFERAY_DB_HOST=${LIFERAY_DB_HOST:-localhost}
@@ -30,7 +41,9 @@ fi
 
 if [ -n "$LIFERAY_DB_TYPE" ]; then
   echo "Writting Database Credentials details to ${CONFIG_FILE}"
-  cat > ${CONFIG_FILE} << EOF
+  cat >> ${CONFIG_FILE} << EOF
+
+# auto-generated JDBC section
 jdbc.default.driverClassName=${LIFERAY_DB_DRIVER}
 jdbc.default.url=${LIFERAY_DB_URL}
 jdbc.default.username=${LIFERAY_DB_USER}

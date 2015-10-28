@@ -8,18 +8,20 @@
 
 It is based on the [snasello/liferay-6.2](https://hub.docker.com/r/snasello/liferay-6.2/) image, but with some adjustements to make it run in an OpenShift environment.
 
-## OpenShift specific requirements
+### OpenShift specific requirements
 
 * The container should run with a random UUID
 * The Database should be configurable, so we can either point it to an instance running in the same pod, or to a different pod, or to an external service
 
-## Using it locally
+This image use the [openshift/origin-base](https://hub.docker.com/r/openshift/origin-base/) base-image.
+
+## Running locally
 
 The `docker-compose.yml` file simulate the OpenShift environment by running this image and a MySQL image in the same pod, with a non-existant UUID.
 
 You can just `docker-compose up` to start an instance running on port 8080.
 
-## Using it on OpenShift
+## Running on OpenShift
 
 Here is a sample of [DeploymentConfig](https://docs.openshift.org/latest/rest_api/openshift_v1.html#v1-deploymentconfig) for a pod with both containers (not for production !)
 
@@ -71,3 +73,23 @@ It shows the basic environment variables and volumes to define and configure.
         - name: mysql-data
           emptyDir: {}
 ```
+
+## Using a custom configuration
+
+To use a custom Liferay configuration, you can write a new image based on this one :
+
+* create a `Dockerfile` :
+
+  ```
+  FROM axags/liferay-openshift
+  COPY portal-ext.properties /opt/liferay/portal-ext.properties
+  ```
+* create a `portal-ext.properties` file (see [liferay doc](http://docs.liferay.com/portal/6.2/propertiesdoc/portal.properties.html)) :
+
+  ```
+  default.admin.password=password
+  mail.session.mail.smtp.host=localhost
+  mail.session.mail.smtp.port=25
+  company.security.strangers=false
+  ```
+* you can then have OpenShift build your new image by configuring a [BuildConfig](https://docs.openshift.org/latest/rest_api/openshift_v1.html#v1-buildconfig)
