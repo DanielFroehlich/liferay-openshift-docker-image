@@ -6,7 +6,7 @@
 
 `axags/liferay-openshift` is a Docker image that can be used to run Liferay in an OpenShift environment.
 
-It is based on the [snasello/liferay-6.2](https://hub.docker.com/r/snasello/liferay-6.2/) image, but with some adjustements to make it run in an OpenShift environment.
+It is inspired by the [snasello/liferay-6.2](https://hub.docker.com/r/snasello/liferay-6.2/) image, but with some adjustements to make it run in an OpenShift environment.
 
 ### OpenShift specific requirements
 
