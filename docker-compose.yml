@@ -6,7 +6,7 @@ pod:
     - "8080:8080"
 
 mysql:
-  image: openshift/mysql-56-centos7
+  image: openshift/mysql-55-centos7
   user: "100000"
   environment:
     MYSQL_ROOT_PASSWORD: mysecretpassword

@@ -53,7 +53,7 @@ It shows the basic environment variables and volumes to define and configure.
             mountPath: /var/liferay-home
 
         - name: mysql
-          image: docker.io/openshift/mysql-56-centos7:latest
+          image: docker.io/openshift/mysql-55-centos7:latest
           env:
           - name: MYSQL_ROOT_PASSWORD
             value: mysecretpassword
