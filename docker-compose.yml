@@ -25,7 +25,4 @@ liferay:
     LIFERAY_DB_DATABASE: liferay
     LIFERAY_DB_USER: liferay
     LIFERAY_DB_PASSWORD: liferay
-  # we use a link just to make sure liferay doesn't start before mysql
-  links:
-    - mysql
   net: "container:pod"
