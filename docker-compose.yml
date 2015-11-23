@@ -16,7 +16,7 @@ mysql:
   net: "container:pod"
 
 liferay:
-  #image: axags/liferay-openshift
+  #image: vbehar/liferay-openshift
   build: .
   user: "100000"
   environment:

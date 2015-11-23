@@ -3,7 +3,7 @@ machine:
     - docker
 dependencies:
   override:
-    - docker build -t axags/liferay-openshift .
+    - docker build -t vbehar/liferay-openshift .
 test:
   override:
-    - docker run -it axags/liferay-openshift catalina.sh version
+    - docker run -it vbehar/liferay-openshift catalina.sh version

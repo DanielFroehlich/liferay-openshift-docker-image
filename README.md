@@ -1,10 +1,10 @@
 # Liferay OpenShift Docker Image
 
-[![Circle CI](https://circleci.com/gh/AXA-GROUP-SOLUTIONS/liferay-openshift-docker-image/tree/master.svg?style=shield)](https://circleci.com/gh/AXA-GROUP-SOLUTIONS/liferay-openshift-docker-image/tree/master)
-[![DockerHub](https://img.shields.io/badge/docker-axags%2Fliferay--openshift-008bb8.svg)](https://hub.docker.com/r/axags/liferay-openshift/)
-[![Image Layers](https://badge.imagelayers.io/axags/liferay-openshift:latest.svg)](https://imagelayers.io/?images=axags/liferay-openshift:latest)
+[![Circle CI](https://circleci.com/gh/vbehar/liferay-openshift-docker-image/tree/master.svg?style=shield)](https://circleci.com/gh/vbehar/liferay-openshift-docker-image/tree/master)
+[![DockerHub](https://img.shields.io/badge/docker-vbehar%2Fliferay--openshift-008bb8.svg)](https://hub.docker.com/r/vbehar/liferay-openshift/)
+[![Image Layers](https://badge.imagelayers.io/vbehar/liferay-openshift:latest.svg)](https://imagelayers.io/?images=vbehar/liferay-openshift:latest)
 
-`axags/liferay-openshift` is a Docker image that can be used to run Liferay in an OpenShift environment.
+`vbehar/liferay-openshift` is a Docker image that can be used to run Liferay in an OpenShift environment.
 
 It is inspired by the [snasello/liferay-6.2](https://hub.docker.com/r/snasello/liferay-6.2/) image, but with some adjustements to make it run in an OpenShift environment.
 
@@ -36,7 +36,7 @@ It shows the basic environment variables and volumes to define and configure.
         containers:
 
         - name: liferay
-          image: docker.io/axags/liferay-openshift:latest
+          image: docker.io/vbehar/liferay-openshift:latest
           env:
           - name: LIFERAY_DB_TYPE
             value: MYSQL
@@ -81,7 +81,7 @@ To use a custom Liferay configuration, you can write a new image based on this o
 * create a `Dockerfile` :
 
   ```
-  FROM axags/liferay-openshift
+  FROM vbehar/liferay-openshift
   COPY portal-ext.properties /opt/liferay/portal-ext.properties
   ```
 * create a `portal-ext.properties` file (see [liferay doc](http://docs.liferay.com/portal/6.2/propertiesdoc/portal.properties.html)) :

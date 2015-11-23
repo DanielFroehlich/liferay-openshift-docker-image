@@ -1,6 +1,6 @@
-FROM axags/java-openshift:7u80
+FROM vbehar/java-openshift:7u80
 
-MAINTAINER https://github.com/AXA-GROUP-SOLUTIONS/liferay-openshift-docker-image
+MAINTAINER https://github.com/vbehar/liferay-openshift-docker-image
 
 RUN yum install -y unzip && \
     yum clean all
