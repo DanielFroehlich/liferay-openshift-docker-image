@@ -1,9 +1,8 @@
 FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 
-MAINTAINER https://github.com/vbehar/liferay-openshift-docker-image
-
-RUN yum install -y unzip && \
-    yum clean all
+#USER root
+#RUN yum install -y unzip && \
+#    yum clean all
 
 ENV LIFERAY_VERSION=6.2-ce-ga4 \
     LIFERAY_VERSION_MAJOR=6.2.3 \
