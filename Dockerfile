@@ -1,8 +1,6 @@
 FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 
-#USER root
-#RUN yum install -y unzip && \
-#    yum clean all
+USER root
 
 ENV LIFERAY_VERSION=6.2-ce-ga4 \
     LIFERAY_VERSION_MAJOR=6.2.3 \
