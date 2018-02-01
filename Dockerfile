@@ -1,4 +1,4 @@
-FROM vbehar/java-openshift:7u80
+FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 
 MAINTAINER https://github.com/vbehar/liferay-openshift-docker-image
 
