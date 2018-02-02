@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 
-USER root
+#USER root
 
 ENV LIFERAY_VERSION=6.2-ce-ga4 \
     LIFERAY_VERSION_MAJOR=6.2.3 \
